@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Contact } from '../Contact';
-import { CONTACTS } from '../mock-contacts';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ContactService {
-  constructor() {}
+  private apiURL = 'http://127.0.0.1:5000/contacts';
+
+  constructor(private http: HttpClient) {}
 
   getContacts(): Observable<Contact[]> {
-    const contacts = of(CONTACTS);
-    return contacts;
+    return this.http.get<Contact[]>(this.apiURL);
   }
 }
