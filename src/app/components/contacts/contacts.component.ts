@@ -17,4 +17,12 @@ export class ContactsComponent implements OnInit {
       .getContacts()
       .subscribe((contacts) => (this.contacts = contacts));
   }
+
+  deleteContact(contact: Contact) {
+    this.contactService
+      .deleteContact(contact)
+      .subscribe(
+        () => (this.contacts = this.contacts.filter((c) => c.id !== contact.id))
+      );
+  }
 }
