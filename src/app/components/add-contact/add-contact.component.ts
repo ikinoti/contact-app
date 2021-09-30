@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Contact } from 'src/app/Contact';
 
 @Component({
   selector: 'app-add-contact',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-contact.component.css'],
 })
 export class AddContactComponent implements OnInit {
+  @Output() onAddContact: EventEmitter<Contact> = new EventEmitter();
   name: any;
   contact: any;
   email: any;
@@ -30,7 +32,7 @@ export class AddContactComponent implements OnInit {
       meetPlace: this.meetPlace,
     };
 
-    // todo - emit event
+    this.onAddContact.emit(newContact);
 
     this.name = '';
     this.contact = '';
