@@ -1,5 +1,6 @@
 <app-contact-item
   *ngFor="let contact of contacts"
   [contact]="contact"
+  (onDeleteContact)="deleteContact(contact)"
 ></app-contact-item>
 <!-- <p *ngFor="let contact of contacts">{{ contact.name }}</p> -->
