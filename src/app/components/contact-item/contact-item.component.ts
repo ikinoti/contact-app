@@ -9,7 +9,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 })
 export class ContactItemComponent implements OnInit {
   @Input() contact: any;
-  @Output() onDeletetask: EventEmitter<Contact> = new EventEmitter();
+  @Output() onDeleteContact: EventEmitter<Contact> = new EventEmitter();
   faTimes = faTimes;
 
   constructor() {}
@@ -17,6 +17,6 @@ export class ContactItemComponent implements OnInit {
   ngOnInit(): void {}
 
   onDelete(contact: any) {
-    this.onDeletetask.emit(contact);
+    this.onDeleteContact.emit(contact);
   }
 }
