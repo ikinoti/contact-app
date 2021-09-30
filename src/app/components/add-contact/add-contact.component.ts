@@ -8,6 +8,7 @@ import { Contact } from 'src/app/Contact';
 })
 export class AddContactComponent implements OnInit {
   @Output() onAddContact: EventEmitter<Contact> = new EventEmitter();
+
   name: any;
   contact: any;
   email: any;
