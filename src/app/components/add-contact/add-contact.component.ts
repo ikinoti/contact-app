@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { UiService } from 'src/app/services/ui.service';
+import { Subscription } from 'rxjs';
 import { Contact } from 'src/app/Contact';
 
 @Component({
@@ -14,8 +16,14 @@ export class AddContactComponent implements OnInit {
   email: any;
   location: any;
   meetPlace: any;
+  showAddContact: any;
+  subscription: any;
 
-  constructor() {}
+  constructor(private uiService: UiService) {
+    this.subscription = this.uiService
+      .onToggle()
+      .subscribe((value) => (this.showAddContact = value));
+  }
 
   ngOnInit(): void {}
 
