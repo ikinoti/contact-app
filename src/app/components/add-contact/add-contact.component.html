@@ -1,31 +1,51 @@
-<form class="add-form">
+<form class="add-form" (ngSubmit)="onSubmit()">
   <div class="form-control">
     <label for="name">Name</label>
-    <input type="text" name="name" id="name" placeholder="add a name" />
+    <input
+      type="text"
+      name="name"
+      [(ngModel)]="name"
+      id="name"
+      placeholder="add a name"
+    />
   </div>
   <div class="form-control">
-    <label for="contact">Number</label>
-    <input type="text" name="contact" id="contact" placeholder="add a number" />
+    <label for="contact">Contact</label>
+    <input
+      type="text"
+      name="contact"
+      [(ngModel)]="contact"
+      id="contact"
+      placeholder="add a number"
+    />
   </div>
   <div class="form-control">
     <label for="email">Email</label>
-    <input type="email" name="email" id="email" placeholder="add email" />
+    <input
+      type="email"
+      name="email"
+      [(ngModel)]="email"
+      id="email"
+      placeholder="add email"
+    />
   </div>
   <div class="form-control">
     <label for="location">Location</label>
     <input
       type="text"
       name="location"
+      [(ngModel)]="location"
       id="location"
       placeholder="add location"
     />
   </div>
   <div class="form-control">
-    <label for="meetplace">where you met</label>
+    <label for="meetPlace">where you met</label>
     <input
       type="text"
-      name="meetplace"
-      id="meetplace"
+      name="meetPlace"
+      [(ngModel)]="meetPlace"
+      id="meetPlace"
       placeholder="met place"
     />
   </div>
