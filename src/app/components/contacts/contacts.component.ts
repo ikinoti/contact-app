@@ -27,6 +27,10 @@ export class ContactsComponent implements OnInit {
   }
 
   addContact(contact: Contact) {
+    this.contactService
+      .addContact(contact)
+      .subscribe((contact) => this.contacts.push(contact));
+
     console.log(contact);
   }
 }
