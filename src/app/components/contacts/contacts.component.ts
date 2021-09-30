@@ -25,4 +25,8 @@ export class ContactsComponent implements OnInit {
         () => (this.contacts = this.contacts.filter((c) => c.id !== contact.id))
       );
   }
+
+  addContact(contact: Contact) {
+    console.log(contact);
+  }
 }
