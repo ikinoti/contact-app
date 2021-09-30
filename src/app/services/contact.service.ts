@@ -7,11 +7,17 @@ import { Contact } from '../Contact';
   providedIn: 'root',
 })
 export class ContactService {
-  private apiURL = 'http://127.0.0.1:5000/contacts';
+  private apiURL = 'https://kinoti-contact-api.herokuapp.com/contacts';
+  private delApiURL = 'https://kinoti-contact-api.herokuapp.com/contact';
 
   constructor(private http: HttpClient) {}
 
   getContacts(): Observable<Contact[]> {
     return this.http.get<Contact[]>(this.apiURL);
+  }
+
+  deleteContact(contact: Contact): Observable<Contact> {
+    const url = `${this.delApiURL}/${contact.id}`;
+    return this.http.delete<Contact>(url);
   }
 }
